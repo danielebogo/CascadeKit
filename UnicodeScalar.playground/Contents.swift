@@ -1,10 +1,6 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
-
-
-//: [Previous](@previous)
-
 import Foundation
 
 
@@ -20,39 +16,37 @@ struct Fallback {
 
 extension Unicode.Scalar {
     func match(in ranges: [CountableClosedRange<UInt32>]) -> Bool {
-        for r in ranges {
-            if r ~= self.value {
-                return true
-            }
-        }
+        if ranges.isEmpty { return false }
         
-        return false
+        guard let firstRange = ranges.first else { return false }
+        
+        if firstRange ~= self.value { return true }
+        
+        return match(in: Array(ranges.dropFirst()))
     }
 }
 
 extension String {
-    func fallbackRanges(_ block:(Unicode.Scalar) -> Bool) -> [Fallback] {
+    func fallbackRanges(_ criteria:(Unicode.Scalar) -> Bool) -> [Fallback] {
         var ranges: [Fallback] = []
         var index = 0
         var startBound = 0
         var endBound = 0
         var isMatching = false
-        for s in self.unicodeScalars {
-            if block(s) {
+        
+        for scalar in self.unicodeScalars {
+            if criteria(scalar) {
                 if !isMatching {
                     isMatching = true
                     startBound = index
                 }
-                
-                index += 1
-                continue
-            }
-            
-            if isMatching {
-                isMatching = false
-                endBound = index - 1
-                ranges.append(Fallback(substring: self.substring(bounds: startBound...endBound),
-                                       range: startBound...endBound))
+            } else {
+                if isMatching {
+                    isMatching = false
+                    endBound = index - 1
+                    ranges.append(Fallback(substring: self.substring(bounds: startBound...endBound),
+                                           range: startBound...endBound))
+                }
             }
             
             index += 1
@@ -63,19 +57,22 @@ extension String {
 }
 
 extension String {
+    fileprivate func interval(lowerBound: Int, upperBound: Int) -> (Index, Index) {
+        return (index(startIndex, offsetBy: lowerBound), index(startIndex, offsetBy: upperBound))
+    }
+    
     func substring(bounds: CountableClosedRange<Int>) -> String {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return String(self[start...end])
+        let range = interval(lowerBound: bounds.lowerBound, upperBound: bounds.upperBound)
+
+        return String(self[range.0...range.1])
     }
     
     func substring(bounds: CountableRange<Int>) -> String {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return String(self[start..<end])
+        let range = interval(lowerBound: bounds.lowerBound, upperBound: bounds.upperBound)
+        
+        return String(self[range.0..<range.1])
     }
 }
 
 let ranges = string.fallbackRanges { $0.match(in: latinRanges) }
 print(ranges)
-
