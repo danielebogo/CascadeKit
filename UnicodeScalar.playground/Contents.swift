@@ -6,8 +6,9 @@ import Foundation
 
 let latinRanges: [CountableClosedRange<UInt32>] = [0x41...0x5A, 0x61...0x7A, 0xC0...0xFF, 0x100...0x17F]
 let arabicRanges: [CountableClosedRange<UInt32>] = [0x600...0x6FF]
+let greekRanges: [CountableClosedRange<UInt32>] = [0x370...0x3FF]
 
-var string = "Hi mate! عن الCIAOتركيز "
+var string = "Hi mate! Ϡعن الCIAOتركيز ζϩ F"
 
 struct Fallback {
     var substring: String
@@ -35,6 +36,7 @@ extension String {
         var isMatching = false
         
         for scalar in self.unicodeScalars {
+            print("‼️\(scalar)")
             if criteria(scalar) {
                 if !isMatching {
                     isMatching = true
@@ -50,6 +52,12 @@ extension String {
             }
             
             index += 1
+        }
+        
+        if isMatching {
+            endBound = index - 1
+            ranges.append(Fallback(substring: self.substring(bounds: startBound...endBound),
+                                   range: startBound...endBound))
         }
         
         return ranges
