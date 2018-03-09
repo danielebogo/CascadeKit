@@ -99,5 +99,5 @@ extension String {
 }
 
 var string = "Hi mate! Ϡعن الCIAOتركيز ζϩ F"
-let ranges = string.fallbackRanges { $0.match(in: [.arabic]) }
-print(ranges)
+let ranges = string.fallbackRanges { $0.match(in: [.latin]) }
+print(ranges.map{ "• Fallback: \($0.content) - \($0.range)" }.joined(separator: "\n"))
