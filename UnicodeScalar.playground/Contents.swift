@@ -3,9 +3,29 @@
 import UIKit
 import Foundation
 
-let arabicRanges: [CountableClosedRange<UInt32>] = [0x600...0x6FF]
-let greekRanges: [CountableClosedRange<UInt32>] = [0x370...0x3FF]
-let latinRanges: [CountableClosedRange<UInt32>] = [0x41...0x5A, 0x61...0x7A, 0xC0...0xFF, 0x100...0x17F]
+
+enum UnicodeCharactersRange {
+    case arabic
+    case russian
+    case russianSupplementary
+    case latin
+    case latinSupplementary
+    case greek
+
+    var range: CountableClosedRange<UInt32> {
+        switch self {
+        case .arabic: return 0x600...0x6FF
+            
+        case .russian: return 0x400...0x4FF
+        case .russianSupplementary: return 0x500...0x52F
+
+        case .latin: return 0x20...0x7F
+        case .latinSupplementary: return 0xA0...0xFF
+            
+        case .greek: return 0x370...0x3FF
+        }
+    }
+}
 
 struct Fallback {
     var content: String
@@ -13,12 +33,12 @@ struct Fallback {
 }
 
 extension Unicode.Scalar {
-    func match(in ranges: [CountableClosedRange<UInt32>]) -> Bool {
+    func match(in ranges: [UnicodeCharactersRange]) -> Bool {
         if ranges.isEmpty { return false }
 
         guard let firstRange = ranges.first else { return false }
 
-        if firstRange ~= self.value { return true }
+        if firstRange.range ~= self.value { return true }
 
         return match(in: Array(ranges.dropFirst()))
     }
@@ -79,5 +99,5 @@ extension String {
 }
 
 var string = "Hi mate! Ϡعن الCIAOتركيز ζϩ F"
-let ranges = string.fallbackRanges { $0.match(in: arabicRanges) }
+let ranges = string.fallbackRanges { $0.match(in: [.arabic]) }
 print(ranges)
