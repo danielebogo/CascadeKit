@@ -3,26 +3,23 @@
 import UIKit
 import Foundation
 
-
-let latinRanges: [CountableClosedRange<UInt32>] = [0x41...0x5A, 0x61...0x7A, 0xC0...0xFF, 0x100...0x17F]
 let arabicRanges: [CountableClosedRange<UInt32>] = [0x600...0x6FF]
 let greekRanges: [CountableClosedRange<UInt32>] = [0x370...0x3FF]
-
-var string = "Hi mate! Ϡعن الCIAOتركيز ζϩ F"
+let latinRanges: [CountableClosedRange<UInt32>] = [0x41...0x5A, 0x61...0x7A, 0xC0...0xFF, 0x100...0x17F]
 
 struct Fallback {
-    var substring: String
+    var content: String
     var range: CountableClosedRange<Int>
 }
 
 extension Unicode.Scalar {
     func match(in ranges: [CountableClosedRange<UInt32>]) -> Bool {
         if ranges.isEmpty { return false }
-        
+
         guard let firstRange = ranges.first else { return false }
-        
+
         if firstRange ~= self.value { return true }
-        
+
         return match(in: Array(ranges.dropFirst()))
     }
 }
@@ -34,32 +31,31 @@ extension String {
         var startBound = 0
         var endBound = 0
         var isMatching = false
-        
+
         for scalar in self.unicodeScalars {
-            print("‼️\(scalar)")
-            if criteria(scalar) {
+            if criteria(scalar) { // match
                 if !isMatching {
                     isMatching = true
                     startBound = index
                 }
-            } else {
+            } else { // not match
                 if isMatching {
                     isMatching = false
                     endBound = index - 1
-                    ranges.append(Fallback(substring: self.substring(bounds: startBound...endBound),
+                    ranges.append(Fallback(content: self.substring(bounds: startBound...endBound),
                                            range: startBound...endBound))
                 }
             }
-            
+
             index += 1
         }
-        
+
         if isMatching {
             endBound = index - 1
-            ranges.append(Fallback(substring: self.substring(bounds: startBound...endBound),
+            ranges.append(Fallback(content: self.substring(bounds: startBound...endBound),
                                    range: startBound...endBound))
         }
-        
+
         return ranges
     }
 }
@@ -68,19 +64,20 @@ extension String {
     fileprivate func interval(lowerBound: Int, upperBound: Int) -> (Index, Index) {
         return (index(startIndex, offsetBy: lowerBound), index(startIndex, offsetBy: upperBound))
     }
-    
+
     func substring(bounds: CountableClosedRange<Int>) -> String {
         let range = interval(lowerBound: bounds.lowerBound, upperBound: bounds.upperBound)
 
         return String(self[range.0...range.1])
     }
-    
+
     func substring(bounds: CountableRange<Int>) -> String {
         let range = interval(lowerBound: bounds.lowerBound, upperBound: bounds.upperBound)
-        
+
         return String(self[range.0..<range.1])
     }
 }
 
-let ranges = string.fallbackRanges { $0.match(in: latinRanges) }
+var string = "Hi mate! Ϡعن الCIAOتركيز ζϩ F"
+let ranges = string.fallbackRanges { $0.match(in: arabicRanges) }
 print(ranges)
