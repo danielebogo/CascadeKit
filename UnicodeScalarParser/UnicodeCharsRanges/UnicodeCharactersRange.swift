@@ -9,6 +9,10 @@
 import Foundation
 
 
+//protocol UnicodeCharactersRange {
+//    var range: CountableClosedRange<UInt32>
+//}
+
 enum UnicodeCharactersRange {
     case arabic
     case russian

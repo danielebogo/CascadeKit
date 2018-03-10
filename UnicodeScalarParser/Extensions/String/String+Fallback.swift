@@ -27,7 +27,7 @@ extension String {
                 if isMatching {
                     isMatching = false
                     endBound = index - 1
-                    ranges.append(Fallback(content: self.substring(bounds: startBound...endBound),
+                    ranges.append(Fallback(content: substring(collection: startBound...endBound),
                                            range: startBound...endBound))
                 }
             }
@@ -37,7 +37,7 @@ extension String {
         
         if isMatching {
             endBound = index - 1
-            ranges.append(Fallback(content: self.substring(bounds: startBound...endBound),
+            ranges.append(Fallback(content: substring(collection: startBound...endBound),
                                    range: startBound...endBound))
         }
         

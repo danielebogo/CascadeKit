@@ -17,6 +17,7 @@
 		9FF4F6682052E2B000899C61 /* Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6672052E2B000899C61 /* Fallback.swift */; };
 		9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6692052EBB400899C61 /* String+Fallback.swift */; };
 		9FF4F66C2052ED8600899C61 /* FallbackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F66B2052ED8600899C61 /* FallbackTest.swift */; };
+		9FF4F66E2052F56C00899C61 /* SubstringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F66D2052F56C00899C61 /* SubstringTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9FF4F6672052E2B000899C61 /* Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallback.swift; sourceTree = "<group>"; };
 		9FF4F6692052EBB400899C61 /* String+Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Fallback.swift"; sourceTree = "<group>"; };
 		9FF4F66B2052ED8600899C61 /* FallbackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTest.swift; sourceTree = "<group>"; };
+		9FF4F66D2052F56C00899C61 /* SubstringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				9FF4F66B2052ED8600899C61 /* FallbackTest.swift */,
+				9FF4F66D2052F56C00899C61 /* SubstringTest.swift */,
 				9FF4F6512052DA6B00899C61 /* Info.plist */,
 			);
 			path = ExampleTests;
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF4F66C2052ED8600899C61 /* FallbackTest.swift in Sources */,
+				9FF4F66E2052F56C00899C61 /* SubstringTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,14 +10,13 @@ import Foundation
 
 
 extension String {
-    func substring(bounds: CountableClosedRange<Int>) -> String {
-        let range = interval(lowerBound: bounds.lowerBound, upperBound: bounds.upperBound)
+    func substring<C: Collection>(collection: C) -> String where C.Iterator.Element == Int {
+        guard !collection.isEmpty, let first = collection.first else {
+            fatalError("Collection must not be empty")
+        }
+        
+        let range = interval(lowerBound: first, upperBound: (first + Int(collection.count)) - 1)
         return String(self[range.0...range.1])
-    }
-    
-    func substring(bounds: CountableRange<Int>) -> String {
-        let range = interval(lowerBound: bounds.lowerBound, upperBound: bounds.upperBound)
-        return String(self[range.0..<range.1])
     }
     
     private func interval(lowerBound: Int, upperBound: Int) -> (Index, Index) {
