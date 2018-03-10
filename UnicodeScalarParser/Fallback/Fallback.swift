@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Fallback {
     var content: String
     var range: CountableClosedRange<Int>

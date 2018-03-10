@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol Rangeable{ }
 
 extension CountableClosedRange: Rangeable { }

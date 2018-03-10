@@ -8,17 +8,18 @@
 
 import Foundation
 
-
 extension String {
-    func fallbacks(_ criteria:(Unicode.Scalar) -> Bool) -> [Fallback] {
+    func fallbackRanges(for alphabets:[UnicodeCharactersRange]) -> [Fallback] {
         var ranges: [Fallback] = []
         var index = 0
         var startBound = 0
         var endBound = 0
         var isMatching = false
-        
+
+        var cachedScalars: [UnicodeScalar: Bool] = [:]
+
         for scalar in self.unicodeScalars {
-            if criteria(scalar) { // match
+            if cachedScalars[scalar] == true || scalar.match(in: alphabets) {
                 if !isMatching {
                     isMatching = true
                     startBound = index
@@ -27,20 +28,22 @@ extension String {
                 if isMatching {
                     isMatching = false
                     endBound = index - 1
-                    ranges.append(Fallback(content: substring(collection: startBound...endBound),
+                    ranges.append(Fallback(content: self.substring(collection: startBound...endBound),
                                            range: startBound...endBound))
                 }
             }
-            
+
+            cachedScalars[scalar] = isMatching
+
             index += 1
         }
-        
+
         if isMatching {
             endBound = index - 1
-            ranges.append(Fallback(content: substring(collection: startBound...endBound),
+            ranges.append(Fallback(content: self.substring(collection: startBound...endBound),
                                    range: startBound...endBound))
         }
-        
+
         return ranges
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension Unicode.Scalar {
     func match(in ranges: [UnicodeCharactersRange]) -> Bool {
         guard !ranges.isEmpty, let firstRange = ranges.first else {
