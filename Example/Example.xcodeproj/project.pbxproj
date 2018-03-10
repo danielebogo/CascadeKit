@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1584652053EFA900AE8A2A /* Range+Utils.swift */; };
 		9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */; };
 		9FF4F6402052DA6A00899C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F63E2052DA6A00899C61 /* Main.storyboard */; };
 		9FF4F6422052DA6A00899C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F6412052DA6A00899C61 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F1584652053EFA900AE8A2A /* Range+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Utils.swift"; sourceTree = "<group>"; };
 		9FF4F6372052DA6A00899C61 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4F63F2052DA6A00899C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F1584642053EF9200AE8A2A /* Range */ = {
+			isa = PBXGroup;
+			children = (
+				9F1584652053EFA900AE8A2A /* Range+Utils.swift */,
+			);
+			path = Range;
+			sourceTree = "<group>";
+		};
 		9FF4F62E2052DA6A00899C61 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 		9FF4F65F2052E19400899C61 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9F1584642053EF9200AE8A2A /* Range */,
 				9FF4F6632052E28300899C61 /* Scalar */,
 				9FF4F6602052E19E00899C61 /* String */,
 			);
@@ -276,6 +287,7 @@
 				9FF4F6652052E2A000899C61 /* Scalar+Fallback.swift in Sources */,
 				9FF4F6622052E1B400899C61 /* String+Substring.swift in Sources */,
 				9FF4F65E2052E09700899C61 /* UnicodeCharactersRange.swift in Sources */,
+				9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */,
 				9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */,
 				9FF4F6682052E2B000899C61 /* Fallback.swift in Sources */,
 			);
