@@ -11,17 +11,10 @@ import UIKit
 
 extension UILabel {
     func attributedString(with string: String, on alphabets:  [UnicodeCharactersRange]) {
-
-        let fallbacks = string.fallbackRanges(for: alphabets)
-        
-        let attribute = NSMutableAttributedString(string: string)
-        fallbacks.forEach({ fallback in
-            
-            guard let range = fallback.toNSRange() else { return }
-            
-            attribute.addAttribute(.foregroundColor, value: UIColor.red, range: range)
-        })
-        
-        self.attributedText = attribute
+        attributedText = NSMutableAttributedString(string: string).addAttributes(for: alphabets) {
+            Cascade.Attribute(key: .foregroundColor,
+                              value: UIColor.red,
+                              range: $0.toNSRange())
+        }
     }
 }
