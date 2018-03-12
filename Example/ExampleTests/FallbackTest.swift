@@ -11,10 +11,10 @@ import XCTest
 
 
 class FallbackTest: XCTestCase {
-    let content = "ciao"
+    let content = "Hello"
     let range = 0...3
-    let fallback: Fallback = Fallback(content: "ciao",
-                                      range: 0...3)
+    let fallback: CascadeFallback = CascadeFallback(content: "Hello",
+                                                    range: 0...3)
 
     func testFallback() {
         XCTAssertNotNil(fallback)

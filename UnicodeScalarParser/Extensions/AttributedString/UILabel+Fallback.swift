@@ -12,9 +12,9 @@ import UIKit
 extension UILabel {
     func attributedString(with string: String, on alphabets:  [UnicodeCharactersRange]) {
         attributedText = NSMutableAttributedString(string: string).addAttributes(for: alphabets) {
-            Cascade.Attribute(key: .foregroundColor,
-                              value: UIColor.red,
-                              range: $0.toNSRange())
+            CascadeAttribute(key: .foregroundColor,
+                             value: UIColor.red,
+                             range: $0.toNSRange())
         }
     }
 }
