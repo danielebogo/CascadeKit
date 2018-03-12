@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum UnicodeCharactersRange {
     case arabic
     case greek
@@ -16,6 +17,7 @@ enum UnicodeCharactersRange {
     case russian
     case russianSupplementary
 
+    
     var range: CountableClosedRange<UInt32> {
         switch self {
         case .arabic: return 0x600...0x6FF

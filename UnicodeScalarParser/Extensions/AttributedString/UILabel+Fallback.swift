@@ -17,7 +17,7 @@ extension UILabel {
         let attribute = NSMutableAttributedString(string: string)
         fallbacks.forEach({ fallback in
             
-            guard let range = fallback.toRange() else { return }
+            guard let range = fallback.toNSRange() else { return }
             
             attribute.addAttribute(.foregroundColor, value: UIColor.red, range: range)
         })

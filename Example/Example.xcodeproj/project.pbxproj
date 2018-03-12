@@ -10,6 +10,8 @@
 		7541C5402054AF9800C648EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541C53F2054AF9800C648EC /* ViewController.swift */; };
 		7541C5432054B51E00C648EC /* UILabel+Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541C5422054B51E00C648EC /* UILabel+Fallback.swift */; };
 		9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1584652053EFA900AE8A2A /* Range+Utils.swift */; };
+		9FB1861F2055771100C0F6CF /* Cascade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1861E2055771100C0F6CF /* Cascade.swift */; };
+		9FB186212056810900C0F6CF /* NSMutableAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */; };
 		9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */; };
 		9FF4F6402052DA6A00899C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F63E2052DA6A00899C61 /* Main.storyboard */; };
 		9FF4F6422052DA6A00899C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F6412052DA6A00899C61 /* Assets.xcassets */; };
@@ -17,7 +19,6 @@
 		9FF4F65E2052E09700899C61 /* UnicodeCharactersRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F65D2052E09700899C61 /* UnicodeCharactersRange.swift */; };
 		9FF4F6622052E1B400899C61 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6612052E1B400899C61 /* String+Substring.swift */; };
 		9FF4F6652052E2A000899C61 /* Scalar+Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6642052E2A000899C61 /* Scalar+Fallback.swift */; };
-		9FF4F6682052E2B000899C61 /* Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6672052E2B000899C61 /* Fallback.swift */; };
 		9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6692052EBB400899C61 /* String+Fallback.swift */; };
 		9FF4F66C2052ED8600899C61 /* FallbackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F66B2052ED8600899C61 /* FallbackTest.swift */; };
 		9FF4F66E2052F56C00899C61 /* SubstringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F66D2052F56C00899C61 /* SubstringTest.swift */; };
@@ -37,6 +38,8 @@
 		7541C53F2054AF9800C648EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7541C5422054B51E00C648EC /* UILabel+Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Fallback.swift"; sourceTree = "<group>"; };
 		9F1584652053EFA900AE8A2A /* Range+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Utils.swift"; sourceTree = "<group>"; };
+		9FB1861E2055771100C0F6CF /* Cascade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cascade.swift; sourceTree = "<group>"; };
+		9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attribute.swift"; sourceTree = "<group>"; };
 		9FF4F6372052DA6A00899C61 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4F63F2052DA6A00899C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +51,6 @@
 		9FF4F65D2052E09700899C61 /* UnicodeCharactersRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeCharactersRange.swift; sourceTree = "<group>"; };
 		9FF4F6612052E1B400899C61 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
 		9FF4F6642052E2A000899C61 /* Scalar+Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scalar+Fallback.swift"; sourceTree = "<group>"; };
-		9FF4F6672052E2B000899C61 /* Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallback.swift; sourceTree = "<group>"; };
 		9FF4F6692052EBB400899C61 /* String+Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Fallback.swift"; sourceTree = "<group>"; };
 		9FF4F66B2052ED8600899C61 /* FallbackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTest.swift; sourceTree = "<group>"; };
 		9FF4F66D2052F56C00899C61 /* SubstringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTest.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				7541C5422054B51E00C648EC /* UILabel+Fallback.swift */,
+				9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */,
 			);
 			path = AttributedString;
 			sourceTree = "<group>";
@@ -86,6 +89,14 @@
 				9F1584652053EFA900AE8A2A /* Range+Utils.swift */,
 			);
 			path = Range;
+			sourceTree = "<group>";
+		};
+		9FB1861D205576CF00C0F6CF /* Cascade */ = {
+			isa = PBXGroup;
+			children = (
+				9FB1861E2055771100C0F6CF /* Cascade.swift */,
+			);
+			path = Cascade;
 			sourceTree = "<group>";
 		};
 		9FF4F62E2052DA6A00899C61 = {
@@ -141,8 +152,8 @@
 		9FF4F65B2052DAF400899C61 /* UnicodeScalarParser */ = {
 			isa = PBXGroup;
 			children = (
+				9FB1861D205576CF00C0F6CF /* Cascade */,
 				9FF4F65F2052E19400899C61 /* Extensions */,
-				9FF4F6662052E2A500899C61 /* Fallback */,
 				9FF4F65C2052E07000899C61 /* UnicodeCharsRanges */,
 			);
 			name = UnicodeScalarParser;
@@ -183,14 +194,6 @@
 				9FF4F6642052E2A000899C61 /* Scalar+Fallback.swift */,
 			);
 			path = Scalar;
-			sourceTree = "<group>";
-		};
-		9FF4F6662052E2A500899C61 /* Fallback */ = {
-			isa = PBXGroup;
-			children = (
-				9FF4F6672052E2B000899C61 /* Fallback.swift */,
-			);
-			path = Fallback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,15 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB1861F2055771100C0F6CF /* Cascade.swift in Sources */,
 				9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */,
 				9FF4F6652052E2A000899C61 /* Scalar+Fallback.swift in Sources */,
 				9FF4F6622052E1B400899C61 /* String+Substring.swift in Sources */,
 				9FF4F65E2052E09700899C61 /* UnicodeCharactersRange.swift in Sources */,
+				9FB186212056810900C0F6CF /* NSMutableAttributedString+Attribute.swift in Sources */,
 				7541C5432054B51E00C648EC /* UILabel+Fallback.swift in Sources */,
 				9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */,
 				9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */,
 				7541C5402054AF9800C648EC /* ViewController.swift in Sources */,
-				9FF4F6682052E2B000899C61 /* Fallback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

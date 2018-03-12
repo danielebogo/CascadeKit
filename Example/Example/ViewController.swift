@@ -9,12 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var exampleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myText = "Hi Mate ثت yo "
-        self.exampleLabel.attributedString(with: myText, on: [.arabic])
+        let myText = "Hi Mate ثت yo"
+//        self.exampleLabel.attributedString(with: myText, on: [.arabic])
+        
+        let attribute = NSMutableAttributedString(string: myText).addAttributes(for: [.arabic]) {
+            Cascade.Attribute(key: .foregroundColor,
+                              value: UIColor.red,
+                              range: $0.toNSRange())
+        }
+        self.exampleLabel.attributedText = attribute
     }
 }
+
