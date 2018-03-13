@@ -8,14 +8,19 @@
 
 import Foundation
 
-
 extension NSMutableAttributedString {
     @discardableResult
-    func addAttributes(for alphabets: [UnicodeCharactersRange], _ block: @escaping (CascadeFallback) -> CascadeAttribute) -> NSMutableAttributedString {
+    func addAttributes(for alphabets: [UnicodeCharactersRange], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
         string.mapCascade(for: alphabets) { [weak self] (fallback) in
-            let attribute = block(fallback)
-            guard let range = attribute.range else { return }
-            self?.addAttribute(attribute.key, value: attribute.value, range: range)
+            let attributes = block(fallback)
+
+            attributes.forEach({ attribute in
+                guard let range = attribute.range else { return }
+
+                self?.addAttribute(attribute.key,
+                                   value: attribute.value,
+                                   range: range)
+            })
         }
         
         return self

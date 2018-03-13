@@ -18,13 +18,11 @@ struct Cascade {
         var range: NSRange?
     }
     
-    
     /// String cascade fallback
     struct Fallback {
         var content: String
         var range: CountableClosedRange<Int>
-        
-        
+
         /// Convert a collection range to NSRange
         ///
         /// - Returns: A NSRange. I can be nil

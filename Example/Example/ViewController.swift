@@ -15,7 +15,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let myText = "Hi Mate ثت yo"
-        self.exampleLabel.attributedString(with: myText, on: [.arabic])
+
+        let attributed = NSMutableAttributedString(string: myText)
+        attributed.addAttributes(for: [.latin]) {
+
+            let colorAttribute = CascadeAttribute(key: .foregroundColor,
+                                                  value: UIColor.red,
+                                                  range: $0.toNSRange())
+
+            let backgroundAttribute = CascadeAttribute(key: .backgroundColor,
+                                                       value: UIColor.yellow,
+                                                       range: $0.toNSRange())
+
+            return [colorAttribute, backgroundAttribute]
+        }
+
+        self.exampleLabel.attributedText = attributed
     }
 }
 
