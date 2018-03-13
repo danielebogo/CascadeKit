@@ -15,27 +15,13 @@ struct Cascade {
     struct Attribute {
         var key: NSAttributedStringKey
         var value: Any
-        var range: NSRange?
+        var range: CountableClosedRange<Int>
     }
     
     /// String cascade fallback
     struct Fallback {
         var content: String
         var range: CountableClosedRange<Int>
-
-        /// Convert a collection range to NSRange
-        ///
-        /// - Returns: A NSRange. I can be nil
-        func toNSRange() -> NSRange? {
-            guard
-                let start = Array(self.range).first,
-                let last =  Array(self.range).last
-                else {
-                    return nil
-            }
-            
-            return NSRange(location: start, length: last - start + 1)
-        }
     }
 }
 

@@ -21,11 +21,11 @@ class ViewController: UIViewController {
 
             let colorAttribute = CascadeAttribute(key: .foregroundColor,
                                                   value: UIColor.red,
-                                                  range: $0.toNSRange())
+                                                  range: $0.range)
 
             let backgroundAttribute = CascadeAttribute(key: .backgroundColor,
                                                        value: UIColor.yellow,
-                                                       range: $0.toNSRange())
+                                                       range: $0.range)
 
             return [colorAttribute, backgroundAttribute]
         }
