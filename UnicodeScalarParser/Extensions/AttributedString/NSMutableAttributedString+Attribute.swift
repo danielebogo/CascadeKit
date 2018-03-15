@@ -11,7 +11,7 @@ import Foundation
 extension NSMutableAttributedString {
     @discardableResult
     func addAttributes(for alphabets: [UnicodeCharactersRange], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
-        string.mapCascade(for: alphabets) { [weak self] (fallback) in
+        string.mapCascade2(for: alphabets) { [weak self] (fallback) in
             let attributes = block(fallback)
 
             attributes.forEach{

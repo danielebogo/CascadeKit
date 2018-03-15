@@ -17,7 +17,57 @@ extension String {
 
         return ranges
     }
-    
+
+    func mapCascade2(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
+        struct ScalarFound {
+            var index: Int
+            var scalar: Unicode.Scalar
+            var type: UnicodeCharactersRange
+        }
+
+        var transformedScalars = self.unicodeScalars.enumerated().flatMap { (arg) -> ScalarFound? in
+            let (index, scalar) = arg
+
+            guard let match = scalar.match(in: alphabets) else {
+                return nil
+            }
+
+            return ScalarFound(index: index, scalar: scalar, type: match)
+        }
+
+        if transformedScalars.count == 0 { return }
+
+        let firstScalar = transformedScalars.first!
+
+        var cascadeFallback = CascadeFallback(content: String(firstScalar.scalar), range: firstScalar.index...firstScalar.index, type: firstScalar.type)
+
+        transformedScalars = Array(transformedScalars.dropFirst())
+
+        var startIndex = firstScalar.index
+        var previousScalarIndex = 0
+        transformedScalars.forEach { scalarFound in
+            if startIndex == -1 {
+                startIndex = scalarFound.index
+                previousScalarIndex = startIndex
+            }
+
+            if scalarFound.index == previousScalarIndex + 1 {
+                previousScalarIndex = previousScalarIndex  + 1
+                return
+            }
+
+            if startIndex == previousScalarIndex { return }
+
+            let newRange: CountableClosedRange<Int> = startIndex...previousScalarIndex
+
+            cascadeFallback = CascadeFallback(content: cascadeFallback.content, range: newRange, type: cascadeFallback.type)
+            block(cascadeFallback)
+
+            startIndex = -1
+            previousScalarIndex = -1
+        }
+    }
+
     func mapCascade(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
         var index = 0
         var startBound = 0
@@ -28,13 +78,14 @@ extension String {
         var type: UnicodeCharactersRange?
         
         for scalar in self.unicodeScalars {
-            type = scalar.match(in: alphabets)
-            if cachedScalars[scalar] != nil || type != nil {
+            let matchedType = scalar.match(in: alphabets)
+            if cachedScalars[scalar] != nil || matchedType != nil {
                 if !isMatching {
                     isMatching = true
                     startBound = index
+                    type = matchedType
                 }
-            } else { // not match
+            } else {
                 if isMatching {
                     isMatching = false
                     endBound = index - 1
@@ -46,8 +97,8 @@ extension String {
                 }
             }
             
-            if let type = type {
-                cachedScalars[scalar] = type
+            if let matchedType = matchedType {
+                cachedScalars[scalar] = matchedType
             }
             
             index += 1
