@@ -68,6 +68,43 @@ extension String {
         }
     }
 
+    /*
+     import Foundation
+
+     let aa = [1, 2, 3, 6, 7, 8]
+
+     struct Arange {
+     var start: Int = 0
+     var end: Int = 0
+     }
+
+     var myRange = Arange()
+     var previousIndex = 1
+
+     aa.enumerated().forEach { (index, a) in
+     print("\(index), \(a), \(previousIndex)")
+     if a == previousIndex { return }
+
+     if a == previousIndex + 1 {
+     previousIndex = previousIndex + 1
+     return
+     }
+
+     myRange.end = previousIndex
+     print("Found \(myRange)")
+
+     if index + 1 < aa.count {
+     myRange.start = a
+     myRange.end = 0
+     previousIndex = myRange.start
+     }
+     }
+
+     myRange.end = previousIndex
+     print("Found \(myRange)")
+
+     */
+
     func mapCascade(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
         var index = 0
         var startBound = 0
