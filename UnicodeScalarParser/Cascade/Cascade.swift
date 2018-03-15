@@ -22,9 +22,9 @@ struct Cascade {
     struct Fallback {
         var content: String
         var range: CountableClosedRange<Int>
+        var type: UnicodeCharactersRange
     }
 }
 
 typealias CascadeAttribute = Cascade.Attribute
 typealias CascadeFallback = Cascade.Fallback
-

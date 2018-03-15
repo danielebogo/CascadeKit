@@ -9,12 +9,12 @@
 import Foundation
 
 extension Unicode.Scalar {
-    func match(in ranges: [UnicodeCharactersRange]) -> Bool {
+    func match(in ranges: [UnicodeCharactersRange]) -> UnicodeCharactersRange? {
         guard !ranges.isEmpty, let firstRange = ranges.first else {
-            return false
+            return nil
         }
         
-        if firstRange.range ~= self.value { return true }
+        if firstRange.range ~= self.value { return firstRange }
         
         return match(in: Array(ranges.dropFirst()))
     }

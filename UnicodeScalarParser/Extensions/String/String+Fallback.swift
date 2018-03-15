@@ -10,7 +10,6 @@ import Foundation
 
 extension String {
     func fallbackRanges(for alphabets:[UnicodeCharactersRange]) -> [CascadeFallback] {
-
         var ranges: [CascadeFallback] = []
         self.mapCascade(for: alphabets) { fallback in
             ranges.append(fallback)
@@ -25,10 +24,12 @@ extension String {
         var endBound = 0
         var isMatching = false
         
-        var cachedScalars: [UnicodeScalar: Bool] = [:]
+        var cachedScalars: [UnicodeScalar: UnicodeCharactersRange] = [:]
+        var type: UnicodeCharactersRange?
         
         for scalar in self.unicodeScalars {
-            if cachedScalars[scalar] == true || scalar.match(in: alphabets) {
+            type = scalar.match(in: alphabets)
+            if cachedScalars[scalar] != nil || type != nil {
                 if !isMatching {
                     isMatching = true
                     startBound = index
@@ -37,20 +38,26 @@ extension String {
                 if isMatching {
                     isMatching = false
                     endBound = index - 1
-                    block(CascadeFallback(content: substring(collection: startBound...endBound),
-                                          range: startBound...endBound))
+                    if let type = type {
+                        block(CascadeFallback(content: substring(collection: startBound...endBound),
+                                              range: startBound...endBound,
+                                              type: type))
+                    }
                 }
             }
             
-            cachedScalars[scalar] = isMatching
+            if let type = type {
+                cachedScalars[scalar] = type
+            }
             
             index += 1
         }
         
-        if isMatching {
+        if let type = type, isMatching {
             endBound = index - 1
             block(CascadeFallback(content: substring(collection: startBound...endBound),
-                                  range: startBound...endBound))
+                                  range: startBound...endBound,
+                                  type: type))
         }
     }
 }
