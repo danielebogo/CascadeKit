@@ -1,4 +1,4 @@
-//
+    //
 //  Cascade.swift
 //  Example
 //
@@ -28,3 +28,17 @@ struct Cascade {
 
 typealias CascadeAttribute = Cascade.Attribute
 typealias CascadeFallback = Cascade.Fallback
+
+extension Cascade.Fallback {
+    func merge(fallback: Cascade.Fallback) -> Cascade.Fallback? {
+
+        if self.range.upperBound != (fallback.range.lowerBound - 1) {
+
+            return nil
+        }
+
+        return Cascade.Fallback(content: self.content + fallback.content,
+                                range: self.range.lowerBound...fallback.range.upperBound,
+                                type: self.type)
+    }
+}
