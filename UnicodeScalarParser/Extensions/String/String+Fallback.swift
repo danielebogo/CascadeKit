@@ -68,7 +68,7 @@ extension String {
 
             guard let merged = targetFallback.merge(fallback: currentFallback) else {
                 block(targetFallback)
-                fallback = nil
+                fallback = currentFallback
 
                 continue
             }
