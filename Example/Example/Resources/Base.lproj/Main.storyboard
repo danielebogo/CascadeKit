@@ -24,17 +24,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOk-Pa-xB2">
+                                <rect key="frame" x="16" y="387" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L65-ea-zZA">
+                                <rect key="frame" x="16" y="279" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7gJ-Cj-YOz" firstAttribute="top" secondItem="L65-ea-zZA" secondAttribute="bottom" constant="33" id="2aa-OX-LG1"/>
                             <constraint firstItem="7gJ-Cj-YOz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="4JA-Wp-gB1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7gJ-Cj-YOz" secondAttribute="trailing" constant="16" id="4TW-gA-w7c"/>
+                            <constraint firstItem="uOk-Pa-xB2" firstAttribute="top" secondItem="7gJ-Cj-YOz" secondAttribute="bottom" constant="33" id="O9a-mz-wP5"/>
+                            <constraint firstItem="L65-ea-zZA" firstAttribute="leading" secondItem="7gJ-Cj-YOz" secondAttribute="leading" id="Pex-fx-Vqv"/>
+                            <constraint firstItem="L65-ea-zZA" firstAttribute="trailing" secondItem="7gJ-Cj-YOz" secondAttribute="trailing" id="Re9-5N-Kn6"/>
+                            <constraint firstItem="uOk-Pa-xB2" firstAttribute="trailing" secondItem="7gJ-Cj-YOz" secondAttribute="trailing" id="h3I-JI-Tah"/>
                             <constraint firstItem="7gJ-Cj-YOz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wnC-RH-bEs"/>
+                            <constraint firstItem="uOk-Pa-xB2" firstAttribute="leading" secondItem="7gJ-Cj-YOz" secondAttribute="leading" id="x1q-bK-w2s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="exampleLabel" destination="7gJ-Cj-YOz" id="gKp-9U-FS3"/>
+                        <outlet property="example01" destination="7gJ-Cj-YOz" id="08q-8H-2uc"/>
+                        <outlet property="example02" destination="uOk-Pa-xB2" id="SCC-hQ-4zh"/>
+                        <outlet property="example03" destination="L65-ea-zZA" id="yeb-Hq-lxt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -20,6 +20,22 @@ extension String {
 
     func mapCascade2(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
 
+        let transformedScalars = self.transform(for: alphabets)
+
+        if transformedScalars.count == 0 { return }
+
+        if transformedScalars.count == 1 { block(transformedScalars.first!) }
+
+        self.emit(from: transformedScalars, block: block)
+    }
+
+    /*
+     This method returns a list of `Cascade.Fallback` based on the input `alphabet`.
+
+     Every Cascade.Fallback will have a 1-spot range, the type based on the input `alphabet` and
+     the identified scalar at that range.
+     */
+    fileprivate func transform(for alphabets: [UnicodeCharactersRange]) -> [Cascade.Fallback] {
         let transformedScalars = self.unicodeScalars.enumerated().flatMap { (arg) -> Cascade.Fallback? in
             let (index, scalar) = arg
 
@@ -30,20 +46,27 @@ extension String {
             return Cascade.Fallback(content: String(scalar), range: index...index, type: match)
         }
 
-        if transformedScalars.count == 0 { return }
+        return transformedScalars
+    }
 
-        if transformedScalars.count == 1 { block(transformedScalars.first!) }
+    /*
+     This method relies on the `Cascade.fallback.merge(:)` method which is able to merge to ranges into
+     a bigger one.
 
-        var fallback: Cascade.Fallback? = transformedScalars.first!
+     So everytime two ranges are consecutive, a new one is built with the composition of the two scalars
+     and a range based on the union of the two ranges.
+     */
+    fileprivate func emit(from fallbacks: [Cascade.Fallback], block: (CascadeFallback) -> ()) {
+        var fallback: Cascade.Fallback? = fallbacks.first!
 
-        for currentFallback in transformedScalars.dropFirst() {
+        for currentFallback in fallbacks.dropFirst() {
             guard let targetFallback = fallback else {
                 fallback = currentFallback
+
                 continue
             }
 
             guard let merged = targetFallback.merge(fallback: currentFallback) else {
-
                 block(targetFallback)
                 fallback = nil
 
@@ -57,43 +80,6 @@ extension String {
             block(fallback!)
         }
     }
-
-    /*
-     import Foundation
-
-     let aa = [1, 2, 3, 6, 7, 8]
-
-     struct Arange {
-     var start: Int = 0
-     var end: Int = 0
-     }
-
-     var myRange = Arange()
-     var previousIndex = 1
-
-     aa.enumerated().forEach { (index, a) in
-     print("\(index), \(a), \(previousIndex)")
-     if a == previousIndex { return }
-
-     if a == previousIndex + 1 {
-     previousIndex = previousIndex + 1
-     return
-     }
-
-     myRange.end = previousIndex
-     print("Found \(myRange)")
-
-     if index + 1 < aa.count {
-     myRange.start = a
-     myRange.end = 0
-     previousIndex = myRange.start
-     }
-     }
-
-     myRange.end = previousIndex
-     print("Found \(myRange)")
-
-     */
 
     func mapCascade(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
         var index = 0
