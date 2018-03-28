@@ -12,13 +12,13 @@ import XCTest
 
 class RangeMatchingTest: XCTestCase {
     func testMatchUnicodeScalar() {
-        let match: Bool = "a".unicodeScalars.first?.match(in: [.latin]) ?? false
-        XCTAssertTrue(match)
+        let type: UnicodeCharactersRange = ("a".unicodeScalars.first?.match(in: [.latin]))!
+        XCTAssertEqual(type, .latin)
     }
     
     func testUnmatchUnicodeScalar() {
-        let match: Bool = "a".unicodeScalars.first?.match(in: [.arabic]) ?? false
-        XCTAssertFalse(match)
+        let type: UnicodeCharactersRange? = "a".unicodeScalars.first?.match(in: [.arabic])
+        XCTAssertNil(type)
     }
     
     func testFallbackMatching() {
@@ -29,6 +29,6 @@ class RangeMatchingTest: XCTestCase {
             expectation.fulfill()
         }
         
-        self.waitForExpectations(timeout: 1.0, handler: nil)
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 }

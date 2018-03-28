@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 extension String {
     func fallbackRanges(for alphabets:[UnicodeCharactersRange]) -> [CascadeFallback] {
         var ranges: [CascadeFallback] = []
@@ -18,11 +19,11 @@ extension String {
         return ranges
     }
 
-    func mapCascade2(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
+    func mapCascade(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
 
         let transformedScalars = self.transform(for: alphabets)
 
-        if transformedScalars.count == 0 { return }
+        if transformedScalars.isEmpty { return }
 
         if transformedScalars.count == 1 { block(transformedScalars.first!) }
 
@@ -78,50 +79,6 @@ extension String {
 
         if fallback != nil {
             block(fallback!)
-        }
-    }
-
-    func mapCascade(for alphabets: [UnicodeCharactersRange], _ block: (CascadeFallback) -> ()) {
-        var index = 0
-        var startBound = 0
-        var endBound = 0
-        var isMatching = false
-        
-        var cachedScalars: [UnicodeScalar: UnicodeCharactersRange] = [:]
-        var type: UnicodeCharactersRange?
-        
-        for scalar in self.unicodeScalars {
-            let matchedType = scalar.match(in: alphabets)
-            if cachedScalars[scalar] != nil || matchedType != nil {
-                if !isMatching {
-                    isMatching = true
-                    startBound = index
-                    type = matchedType
-                }
-            } else {
-                if isMatching {
-                    isMatching = false
-                    endBound = index - 1
-                    if let type = type {
-                        block(CascadeFallback(content: substring(collection: startBound...endBound),
-                                              range: startBound...endBound,
-                                              type: type))
-                    }
-                }
-            }
-            
-            if let matchedType = matchedType {
-                cachedScalars[scalar] = matchedType
-            }
-            
-            index += 1
-        }
-        
-        if let type = type, isMatching {
-            endBound = index - 1
-            block(CascadeFallback(content: substring(collection: startBound...endBound),
-                                  range: startBound...endBound,
-                                  type: type))
         }
     }
 }
