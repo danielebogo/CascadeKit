@@ -58,17 +58,13 @@ extension String {
      and a range based on the union of the two ranges.
      */
     fileprivate func emit(from fallbacks: [Cascade.Fallback], block: (CascadeFallback) -> ()) {
-        var fallback: Cascade.Fallback? = fallbacks.first!
+        guard var fallback = fallbacks.first else {
+            return
+        }
 
         for currentFallback in fallbacks.dropFirst() {
-            guard let targetFallback = fallback else {
-                fallback = currentFallback
-
-                continue
-            }
-
-            guard let merged = targetFallback.merge(fallback: currentFallback) else {
-                block(targetFallback)
+            guard let merged = fallback.merge(fallback: currentFallback) else {
+                block(fallback)
                 fallback = currentFallback
 
                 continue
@@ -77,8 +73,6 @@ extension String {
             fallback = merged
         }
 
-        if fallback != nil {
-            block(fallback!)
-        }
+        block(fallback)
     }
 }
