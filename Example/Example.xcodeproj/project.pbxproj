@@ -121,7 +121,7 @@
 			children = (
 				9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */,
 				9FF4F65A2052DABE00899C61 /* Resources */,
-				9FF4F65B2052DAF400899C61 /* UnicodeScalarParser */,
+				9FF4F65B2052DAF400899C61 /* kasukedo */,
 				7541C53F2054AF9800C648EC /* ViewController.swift */,
 			);
 			path = Example;
@@ -149,15 +149,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9FF4F65B2052DAF400899C61 /* UnicodeScalarParser */ = {
+		9FF4F65B2052DAF400899C61 /* kasukedo */ = {
 			isa = PBXGroup;
 			children = (
 				9FB1861D205576CF00C0F6CF /* Cascade */,
 				9FF4F65F2052E19400899C61 /* Extensions */,
 				9FF4F65C2052E07000899C61 /* UnicodeCharsRanges */,
 			);
-			name = UnicodeScalarParser;
-			path = ../../UnicodeScalarParser;
+			name = kasukedo;
+			path = ../../kasukedo;
 			sourceTree = "<group>";
 		};
 		9FF4F65C2052E07000899C61 /* UnicodeCharsRanges */ = {
@@ -464,7 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q3SKDBM9PM;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bogodaniele.Example;
@@ -479,7 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q3SKDBM9PM;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bogodaniele.Example;
