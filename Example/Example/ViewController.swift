@@ -1,9 +1,5 @@
 //
-//  ViewController.swift
-//  Example
-//
-//  Created by Ennio Masi on 11/03/2018.
-//  Copyright © 2018 D-E. All rights reserved.
+//  Copyright © 2018 YNAP. All rights reserved.
 //
 
 import UIKit

@@ -1,9 +1,5 @@
 //
-//  NSMutableAttributedString+Attribute.swift
-//  Example
-//
-//  Created by Daniele Bogo on 12/03/2018.
-//  Copyright © 2018 D-E. All rights reserved.
+//  Copyright © 2018 YNAP. All rights reserved.
 //
 
 import Foundation
