@@ -1,14 +1,9 @@
 //
-//  RangeMatchingTest.swift
-//  ExampleTests
-//
-//  Created by Daniele Bogo on 12/03/2018.
-//  Copyright © 2018 D-E. All rights reserved.
+//  Copyright © 2018 YNAP. All rights reserved.
 //
 
 import XCTest
 @testable import Example
-
 
 class RangeMatchingTest: XCTestCase {
     func testMatchUnicodeScalar() {
@@ -23,9 +18,11 @@ class RangeMatchingTest: XCTestCase {
     
     func testFallbackMatching() {
         let expectation = self.expectation(description: "String matching")
-        
-        "hello".mapCascade(for: [.latin]) {
-            XCTAssertEqual($0.content, "hello")
+        let sut = "hello"
+        sut.mapCascade(for: [.latin]) {
+            XCTAssertEqual($0.content, sut)
+            XCTAssertEqual($0.range, 0...(sut.count - 1))
+            XCTAssertEqual($0.type, .latin)
             expectation.fulfill()
         }
         
