@@ -4,7 +4,8 @@
 
 import Foundation
 
-/// Name space for string cascade declartion
+
+/// Name space for string cascade declaration
 struct Cascade {
     /// Attribute struct to decorate an attribute string
     struct Attribute {
@@ -17,23 +18,27 @@ struct Cascade {
     struct Fallback {
         var content: String
         var range: CountableClosedRange<Int>
-        var type: UnicodeCharactersRange
+        var type: Alphabet
     }
 }
+
 
 typealias CascadeAttribute = Cascade.Attribute
 typealias CascadeFallback = Cascade.Fallback
 
+
 extension Cascade.Fallback {
+    /// Create a new fallback from a given Fallback
+    ///
+    /// - Parameter fallback: A valid Fallback
+    /// - Returns: A new Fallback if exists
     func merge(fallback: Cascade.Fallback) -> Cascade.Fallback? {
-
-        if self.range.upperBound != (fallback.range.lowerBound - 1) {
-
+        if range.upperBound != (fallback.range.lowerBound - 1) {
             return nil
         }
 
-        return Cascade.Fallback(content: self.content + fallback.content,
-                                range: self.range.lowerBound...fallback.range.upperBound,
-                                type: self.type)
+        return Cascade.Fallback(content: content + fallback.content,
+                                range: range.lowerBound...fallback.range.upperBound,
+                                type: type)
     }
 }

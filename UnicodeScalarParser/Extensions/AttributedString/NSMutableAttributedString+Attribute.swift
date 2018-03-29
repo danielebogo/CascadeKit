@@ -4,9 +4,16 @@
 
 import Foundation
 
+
 extension NSMutableAttributedString {
+    /// Modify the attribute handling the Cascade fallback attributes
+    ///
+    /// - Parameters:
+    ///   - alphabets: A collection of Alphabet
+    ///   - block: Returns the Cascade Attributes for the current fallback
+    /// - Returns: A mutable attribute string
     @discardableResult
-    func addAttributes(for alphabets: [UnicodeCharactersRange], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
+    func addAttributes(for alphabets: [Alphabet], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
         string.mapCascade(for: alphabets) { [weak self] (fallback) in
             let attributes = block(fallback)
 
@@ -18,6 +25,12 @@ extension NSMutableAttributedString {
         return self
     }
     
+    /// Add an attribute to a NSMutableAttributedString passing a CountableClosedRange<Int>
+    ///
+    /// - Parameters:
+    ///   - name: NSAttributedStringKey key value
+    ///   - value: A value for the attribute
+    ///   - range: A valid CountableClosedRange<Int>
     func addAttribute(_ name: NSAttributedStringKey, value: Any, range: CountableClosedRange<Int>) {
         guard let start = Array(range).first, let last = Array(range).last else {
             return

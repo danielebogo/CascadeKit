@@ -4,6 +4,8 @@
 
 import Foundation
 
+
+/// Custom protocol used for constraining purpose
 protocol Rangeable{ }
 
 extension CountableClosedRange: Rangeable { }

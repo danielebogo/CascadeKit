@@ -4,7 +4,9 @@
 
 import Foundation
 
-enum UnicodeCharactersRange {
+
+/// Alphabet types
+enum Alphabet {
     case arabic
     case greek
     case latin
@@ -12,6 +14,8 @@ enum UnicodeCharactersRange {
     case russian
     case russianSupplementary
 
+    
+    /// A valid CountableClosedRange<UInt32> based on Self
     var range: CountableClosedRange<UInt32> {
         switch self {
         case .arabic: return 0x600...0x6FF
