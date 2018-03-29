@@ -16,7 +16,7 @@
 		9FF4F6402052DA6A00899C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F63E2052DA6A00899C61 /* Main.storyboard */; };
 		9FF4F6422052DA6A00899C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F6412052DA6A00899C61 /* Assets.xcassets */; };
 		9FF4F6452052DA6A00899C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F6432052DA6A00899C61 /* LaunchScreen.storyboard */; };
-		9FF4F65E2052E09700899C61 /* UnicodeCharactersRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F65D2052E09700899C61 /* UnicodeCharactersRange.swift */; };
+		9FF4F65E2052E09700899C61 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F65D2052E09700899C61 /* Alphabet.swift */; };
 		9FF4F6622052E1B400899C61 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6612052E1B400899C61 /* String+Substring.swift */; };
 		9FF4F6652052E2A000899C61 /* Scalar+Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6642052E2A000899C61 /* Scalar+Fallback.swift */; };
 		9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F6692052EBB400899C61 /* String+Fallback.swift */; };
@@ -48,7 +48,7 @@
 		9FF4F6462052DA6A00899C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FF4F64B2052DA6B00899C61 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4F6512052DA6B00899C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FF4F65D2052E09700899C61 /* UnicodeCharactersRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeCharactersRange.swift; sourceTree = "<group>"; };
+		9FF4F65D2052E09700899C61 /* Alphabet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
 		9FF4F6612052E1B400899C61 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
 		9FF4F6642052E2A000899C61 /* Scalar+Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scalar+Fallback.swift"; sourceTree = "<group>"; };
 		9FF4F6692052EBB400899C61 /* String+Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Fallback.swift"; sourceTree = "<group>"; };
@@ -154,18 +154,18 @@
 			children = (
 				9FB1861D205576CF00C0F6CF /* Cascade */,
 				9FF4F65F2052E19400899C61 /* Extensions */,
-				9FF4F65C2052E07000899C61 /* UnicodeCharsRanges */,
+				9FF4F65C2052E07000899C61 /* Alphabets */,
 			);
 			name = UnicodeScalarParser;
 			path = ../../UnicodeScalarParser;
 			sourceTree = "<group>";
 		};
-		9FF4F65C2052E07000899C61 /* UnicodeCharsRanges */ = {
+		9FF4F65C2052E07000899C61 /* Alphabets */ = {
 			isa = PBXGroup;
 			children = (
-				9FF4F65D2052E09700899C61 /* UnicodeCharactersRange.swift */,
+				9FF4F65D2052E09700899C61 /* Alphabet.swift */,
 			);
-			path = UnicodeCharsRanges;
+			path = Alphabets;
 			sourceTree = "<group>";
 		};
 		9FF4F65F2052E19400899C61 /* Extensions */ = {
@@ -304,7 +304,7 @@
 				9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */,
 				9FF4F6652052E2A000899C61 /* Scalar+Fallback.swift in Sources */,
 				9FF4F6622052E1B400899C61 /* String+Substring.swift in Sources */,
-				9FF4F65E2052E09700899C61 /* UnicodeCharactersRange.swift in Sources */,
+				9FF4F65E2052E09700899C61 /* Alphabet.swift in Sources */,
 				9FB186212056810900C0F6CF /* NSMutableAttributedString+Attribute.swift in Sources */,
 				9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */,
 				9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */,
