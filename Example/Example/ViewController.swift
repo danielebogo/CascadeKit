@@ -4,49 +4,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
-    @IBOutlet weak var example01: UILabel!
-    @IBOutlet weak var example02: UILabel!
-    @IBOutlet weak var example03: UILabel!
+class ViewController: UIViewController {
+    private let text: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra luctus libero, non ultrices tortor maximus at. Maecenas cursus, metus nec tincidunt vestibulum, orci arcu feugiat augue, quis egestas nulla eros at nibh. Цонвенире реформиданс еи сед. Maecenas mattis tristique urna, quis commodo ipsum elementum non. Etiam facilisis sapien et dui luctus, quis lacinia ante mattis. Vestibulum ut porttitor elit, nec suscipit leo. Nullam libero dolor, varius eu varius quis, tincidunt in diam. Ut fringilla ante quis suscipit eleifend. In in auctor felis, at tempus dui. Меа елитр нонумес цонцлудатуряуе ин. Либер видерер еос цу, еирмод нонумес инцоррупте усу еи. Етиам аудире долорум ад про."
+    
+    @IBOutlet private weak var textLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // ---------------------------------------------------------------
-        let myText1 = "Hi Mate ثت yo"
 
-        let attributed1 = NSMutableAttributedString(string: myText1)
-        attributed1.addAttributes(for: [.latin]) {
-
+        setupAttributes()
+    }
+    
+    
+    //MARK: - Private methods
+    
+    private func setupAttributes() {
+        let attribute = NSMutableAttributedString(string: text)
+        attribute.addAttributes(for: [.russian]) {
             self.applyAttributes(fallback: $0)
         }
-
-        self.example01.attributedText = attributed1
-        // ---------------------------------------------------------------
-
-        // ---------------------------------------------------------------
-        let myText2 = "Л A ю BдиC го"
-
-        let attributed2 = NSMutableAttributedString(string: myText2)
-        attributed2.addAttributes(for: [.latin]) {
-
-            self.applyAttributes(fallback: $0)
-        }
-
-        self.example02.attributedText = attributed2
-        // ---------------------------------------------------------------
-
-        // ---------------------------------------------------------------
-        let myText3 = "έν A α δ BBB οκίμιο κCCCCαι ανακάτεψε"
-
-        let attributed3 = NSMutableAttributedString(string: myText3)
-        attributed3.addAttributes(for: [.latin]) {
-
-            self.applyAttributes(fallback: $0)
-        }
-
-        self.example03.attributedText = attributed2
-        // ---------------------------------------------------------------
+        
+        textLabel.attributedText = attribute
     }
 
     private func applyAttributes(fallback: CascadeFallback) -> [CascadeAttribute] {
