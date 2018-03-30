@@ -4,13 +4,13 @@
 
 import Foundation
 
-
 extension NSMutableAttributedString {
-    /// Modify the attribute handling the Cascade fallback attributes
+    /// Add new attributes for the specified alphabets, handling the cascade fallbacks
     ///
     /// - Parameters:
     ///   - alphabets: A collection of Alphabet
     ///   - block: Returns the Cascade Attributes for the current fallback
+    ///
     /// - Returns: A mutable attribute string
     @discardableResult
     func addAttributes(for alphabets: [Alphabet], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {

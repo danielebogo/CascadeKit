@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 extension String {
     /// Create a substring using a Rangeable collection
     ///
@@ -19,7 +18,6 @@ extension String {
         return String(self[range.0...range.1])
     }
 
-    
     //MARK: Private methods
     
     /// Get an interval tuple from a bound

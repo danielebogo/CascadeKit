@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 extension Unicode.Scalar {
     /// Match the unicode scalar within the alphabet range
     ///

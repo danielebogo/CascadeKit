@@ -4,10 +4,12 @@
 
 import Foundation
 
-
 /// Name space for string cascade declaration
 struct Cascade {
     /// Attribute struct to decorate an attribute string
+    ///
+    /// With this `Attribute` you can apply a specific style to the characters
+    /// included in the `range` field.
     struct Attribute {
         var key: NSAttributedStringKey
         var value: Any
@@ -15,6 +17,9 @@ struct Cascade {
     }
     
     /// String cascade fallback
+    ///
+    /// The `Fallback` maps a content with its range in the original string and
+    /// the alphabet in which it's been written.
     struct Fallback {
         var content: String
         var range: CountableClosedRange<Int>
@@ -22,10 +27,8 @@ struct Cascade {
     }
 }
 
-
 typealias CascadeAttribute = Cascade.Attribute
 typealias CascadeFallback = Cascade.Fallback
-
 
 extension Cascade.Fallback {
     /// Create a new fallback from a given Fallback

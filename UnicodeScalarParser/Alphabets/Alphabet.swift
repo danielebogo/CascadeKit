@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 /// Alphabet types
 enum Alphabet {
     case arabic

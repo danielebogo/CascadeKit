@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 extension String {
     /// Returns a list of CascadeFallback for a given list of Alphabets
     ///
@@ -35,8 +34,7 @@ extension String {
 
         emit(from: transformedScalars, block: block)
     }
-    
-    
+
     //MARK: - Private methods
     
     /// Returns a list of `Cascade.Fallback` based on the input `alphabet`.
@@ -59,7 +57,8 @@ extension String {
     }
     
     /// Relies on the `CascadeFallback.merge(:)` method which is able to merge to ranges into a bigger one.
-    /// So everytime two ranges are consecutive, a new one is built with the composition of the two scalars and a range based on the union of the two ranges.
+    /// So everytime two ranges are consecutive, a new one is built with the composition of the two scalars and a
+    /// range based on the union of the two consecutive ranges.
     ///
     /// - Parameters:
     ///   - fallbacks: A CascadeFallback collection
