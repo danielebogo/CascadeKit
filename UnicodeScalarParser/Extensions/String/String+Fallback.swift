@@ -5,12 +5,12 @@
 import Foundation
 
 
-extension String {
+public extension String {
     /// Returns a list of CascadeFallback for a given list of Alphabets
     ///
     /// - Parameter alphabets: A given list of Alphabets
     /// - Returns: A list of CascadeFallback
-    func fallbackRanges(for alphabets:[Alphabet]) -> [CascadeFallback] {
+    public func fallbackRanges(for alphabets:[Alphabet]) -> [CascadeFallback] {
         var ranges: [CascadeFallback] = []
         mapCascade(for: alphabets) { fallback in
             ranges.append(fallback)
@@ -24,7 +24,7 @@ extension String {
     /// - Parameters:
     ///   - alphabets: A given list of Aphabets
     ///   - block: Emit the CascadeFallback
-    func mapCascade(for alphabets: [Alphabet], _ block: (CascadeFallback) -> ()) {
+    public func mapCascade(for alphabets: [Alphabet], _ block: (CascadeFallback) -> ()) {
         let transformedScalars = transform(for: alphabets)
 
         if transformedScalars.isEmpty { return }

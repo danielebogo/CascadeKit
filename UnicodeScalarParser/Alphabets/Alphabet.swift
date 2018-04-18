@@ -6,7 +6,7 @@ import Foundation
 
 
 /// Alphabet types
-enum Alphabet {
+public enum Alphabet {
     case arabic
     case greek
     case greekExtended
@@ -18,7 +18,7 @@ enum Alphabet {
 
     
     /// A valid CountableClosedRange<UInt32> based on Self
-    var range: CountableClosedRange<UInt32> {
+    public var range: CountableClosedRange<UInt32> {
         switch self {
         case .arabic: return 0x600...0x6FF
         case .greek: return 0x370...0x3FF

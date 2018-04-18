@@ -7,12 +7,12 @@ import XCTest
 
 class RangeMatchingTest: XCTestCase {
     func testMatchUnicodeScalar() {
-        let type: UnicodeCharactersRange = ("a".unicodeScalars.first?.match(in: [.latin]))!
+        let type: Alphabet = ("a".unicodeScalars.first?.match(in: [.latin]))!
         XCTAssertEqual(type, .latin)
     }
     
     func testUnmatchUnicodeScalar() {
-        let type: UnicodeCharactersRange? = "a".unicodeScalars.first?.match(in: [.arabic])
+        let type: Alphabet? = "a".unicodeScalars.first?.match(in: [.arabic])
         XCTAssertNil(type)
     }
     

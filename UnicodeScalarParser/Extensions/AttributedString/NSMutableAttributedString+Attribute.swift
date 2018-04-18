@@ -5,7 +5,7 @@
 import Foundation
 
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     /// Modify the attribute handling the Cascade fallback attributes
     ///
     /// - Parameters:
@@ -13,7 +13,7 @@ extension NSMutableAttributedString {
     ///   - block: Returns the Cascade Attributes for the current fallback
     /// - Returns: A mutable attribute string
     @discardableResult
-    func addAttributes(for alphabets: [Alphabet], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
+    public func addAttributes(for alphabets: [Alphabet], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
         string.mapCascade(for: alphabets) { [weak self] (fallback) in
             let attributes = block(fallback)
 
@@ -31,7 +31,7 @@ extension NSMutableAttributedString {
     ///   - name: NSAttributedStringKey key value
     ///   - value: A value for the attribute
     ///   - range: A valid CountableClosedRange<Int>
-    func addAttribute(_ name: NSAttributedStringKey, value: Any, range: CountableClosedRange<Int>) {
+    public func addAttribute(_ name: NSAttributedStringKey, value: Any, range: CountableClosedRange<Int>) {
         guard let start = Array(range).first, let last = Array(range).last else {
             return
         }

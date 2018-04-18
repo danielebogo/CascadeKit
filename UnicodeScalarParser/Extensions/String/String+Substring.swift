@@ -5,12 +5,12 @@
 import Foundation
 
 
-extension String {
+public extension String {
     /// Create a substring using a Rangeable collection
     ///
     /// - Parameter collection: A collection
     /// - Returns: A string
-    func substring<C: Collection>(collection: C) -> String where C: Rangeable, C.Iterator.Element == Int {
+    public func substring<C: Collection>(collection: C) -> String where C: Rangeable, C.Iterator.Element == Int {
         guard !collection.isEmpty, let first = collection.first else {
             fatalError("Collection must not be empty")
         }

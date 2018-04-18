@@ -6,16 +6,16 @@ import Foundation
 
 
 /// Name space for string cascade declaration
-struct Cascade {
+public struct Cascade {
     /// Attribute struct to decorate an attribute string
-    struct Attribute {
+    public struct Attribute {
         var key: NSAttributedStringKey
         var value: Any
         var range: CountableClosedRange<Int>
     }
     
     /// String cascade fallback
-    struct Fallback {
+    public struct Fallback {
         var content: String
         var range: CountableClosedRange<Int>
         var type: Alphabet
@@ -23,16 +23,16 @@ struct Cascade {
 }
 
 
-typealias CascadeAttribute = Cascade.Attribute
-typealias CascadeFallback = Cascade.Fallback
+public typealias CascadeAttribute = Cascade.Attribute
+public typealias CascadeFallback = Cascade.Fallback
 
 
-extension Cascade.Fallback {
+public extension CascadeFallback {
     /// Create a new fallback from a given Fallback
     ///
     /// - Parameter fallback: A valid Fallback
     /// - Returns: A new Fallback if exists
-    func merge(fallback: Cascade.Fallback) -> Cascade.Fallback? {
+    public func merge(fallback: Cascade.Fallback) -> Cascade.Fallback? {
         if range.upperBound != (fallback.range.lowerBound - 1) {
             return nil
         }
