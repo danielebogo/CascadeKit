@@ -45,7 +45,7 @@ extension String {
     /// - Parameter alphabets: A collection of Alphabet
     /// - Returns: A list of Cascade.Fallback
     private func transform(for alphabets: [Alphabet]) -> [CascadeFallback] {
-        let transformedScalars = self.unicodeScalars.enumerated().flatMap { (arg) -> CascadeFallback? in
+        let transformedScalars = self.unicodeScalars.enumerated().compactMap { (arg) -> CascadeFallback? in
             let (index, scalar) = arg
 
             guard let match = scalar.match(in: alphabets) else {

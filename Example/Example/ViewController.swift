@@ -21,12 +21,9 @@ class ViewController: UIViewController {
     //MARK: - Private methods
     
     private func setupAttributes() {
-        let attribute = NSMutableAttributedString(string: text)
-        attribute.addAttributes(for: [.russian, .greek, .greekExtended]) {
-            self.applyAttributes(fallback: $0)
+        textLabel.attributedText = NSMutableAttributedString(string: text).addAttributes(for: [.russian, .greek, .greekExtended]) {
+                self.applyAttributes(fallback: $0)
         }
-        
-        textLabel.attributedText = attribute
     }
 
     private func applyAttributes(fallback: CascadeFallback) -> [CascadeAttribute] {
