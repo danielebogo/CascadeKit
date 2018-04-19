@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		7541C5402054AF9800C648EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541C53F2054AF9800C648EC /* ViewController.swift */; };
 		9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1584652053EFA900AE8A2A /* Range+Utils.swift */; };
+		9F4E52022088F06F00424676 /* Fallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E52012088F06F00424676 /* Fallback.swift */; };
+		9F4E52042088F09B00424676 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E52032088F09B00424676 /* Attribute.swift */; };
 		9FA2965E2056D110007BC4D3 /* RangeMatchingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA2965D2056D110007BC4D3 /* RangeMatchingTest.swift */; };
-		9FB1861F2055771100C0F6CF /* Cascade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1861E2055771100C0F6CF /* Cascade.swift */; };
 		9FB186212056810900C0F6CF /* NSMutableAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */; };
 		9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */; };
 		9FF4F6402052DA6A00899C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F63E2052DA6A00899C61 /* Main.storyboard */; };
@@ -37,8 +38,9 @@
 /* Begin PBXFileReference section */
 		7541C53F2054AF9800C648EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9F1584652053EFA900AE8A2A /* Range+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Utils.swift"; sourceTree = "<group>"; };
+		9F4E52012088F06F00424676 /* Fallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallback.swift; sourceTree = "<group>"; };
+		9F4E52032088F09B00424676 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		9FA2965D2056D110007BC4D3 /* RangeMatchingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeMatchingTest.swift; sourceTree = "<group>"; };
-		9FB1861E2055771100C0F6CF /* Cascade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cascade.swift; sourceTree = "<group>"; };
 		9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attribute.swift"; sourceTree = "<group>"; };
 		9FF4F6372052DA6A00899C61 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +95,8 @@
 		9FB1861D205576CF00C0F6CF /* Cascade */ = {
 			isa = PBXGroup;
 			children = (
-				9FB1861E2055771100C0F6CF /* Cascade.swift */,
+				9F4E52012088F06F00424676 /* Fallback.swift */,
+				9F4E52032088F09B00424676 /* Attribute.swift */,
 			);
 			path = Cascade;
 			sourceTree = "<group>";
@@ -300,15 +303,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FB1861F2055771100C0F6CF /* Cascade.swift in Sources */,
 				9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */,
 				9FF4F6652052E2A000899C61 /* Scalar+Fallback.swift in Sources */,
 				9FF4F6622052E1B400899C61 /* String+Substring.swift in Sources */,
 				9FF4F65E2052E09700899C61 /* Alphabet.swift in Sources */,
 				9FB186212056810900C0F6CF /* NSMutableAttributedString+Attribute.swift in Sources */,
 				9F1584662053EFAA00AE8A2A /* Range+Utils.swift in Sources */,
+				9F4E52042088F09B00424676 /* Attribute.swift in Sources */,
 				9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */,
 				7541C5402054AF9800C648EC /* ViewController.swift in Sources */,
+				9F4E52022088F06F00424676 /* Fallback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

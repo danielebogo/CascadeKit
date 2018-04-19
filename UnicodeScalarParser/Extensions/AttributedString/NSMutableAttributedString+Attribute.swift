@@ -6,14 +6,14 @@ import Foundation
 
 
 public extension NSMutableAttributedString {
-    /// Modify the attribute handling the Cascade fallback attributes
+    /// Modify the attribute handling the Fallback attributes
     ///
     /// - Parameters:
     ///   - alphabets: A collection of Alphabet
-    ///   - block: Returns the Cascade Attributes for the current fallback
+    ///   - block: Returns the Attributes for the current fallback
     /// - Returns: A mutable attribute string
     @discardableResult
-    public func addAttributes(for alphabets: [Alphabet], _ block: @escaping (CascadeFallback) -> [CascadeAttribute]) -> NSMutableAttributedString {
+    public func addAttributes(for alphabets: [Alphabet], _ block: @escaping (Fallback) -> [Attribute]) -> NSMutableAttributedString {
         string.mapCascade(for: alphabets) { [weak self] (fallback) in
             let attributes = block(fallback)
 
