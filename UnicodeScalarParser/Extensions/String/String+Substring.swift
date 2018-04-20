@@ -4,22 +4,20 @@
 
 import Foundation
 
-extension String {
+public extension String {
     /// Create a substring using a Rangeable collection
     ///
     /// - Parameter collection: A collection
     /// - Returns: A string
-    func substring<C: Collection>(collection: C) -> String where C: Rangeable, C.Iterator.Element == Int {
+    public func substring<C: Collection>(collection: C) -> String where C: Rangeable, C.Iterator.Element == Int {
         guard !collection.isEmpty, let first = collection.first else {
             fatalError("Collection must not be empty")
         }
-        
+
         let range = interval(lowerBound: first, upperBound: (first + Int(collection.count)) - 1)
         return String(self[range.0...range.1])
     }
 
-    //MARK: Private methods
-    
     /// Get an interval tuple from a bound
     ///
     /// - Parameters:

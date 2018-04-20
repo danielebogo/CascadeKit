@@ -11,31 +11,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupAttributes()
     }
 
     // MARK: - Private methods
     private func setupAttributes() {
-        let attribute = NSMutableAttributedString(string: text)
-        attribute.addAttributes(for: [.russian, .greek, .greekExtended]) {
+        textLabel.attributedText = NSMutableAttributedString(string: text).addAttributes(for: [.russian, .greek, .greekExtended]) {
             self.applyAttributes(fallback: $0)
         }
-
-        textLabel.attributedText = attribute
     }
 
-    private func applyAttributes(fallback: CascadeFallback) -> [CascadeAttribute] {
+    private func applyAttributes(fallback: Fallback) -> [Attribute] {
         let foregroundColor = fallback.type == .russian ? UIColor.red : UIColor.white
         let backgroundColor = fallback.type == .russian ? UIColor.yellow : UIColor.blue
 
-        let colorAttribute = CascadeAttribute(key: .foregroundColor,
-                                              value: foregroundColor,
-                                              range: fallback.range)
+        let colorAttribute = Attribute(key: .foregroundColor,
+                                       value: foregroundColor,
+                                       range: fallback.range)
 
-        let backgroundAttribute = CascadeAttribute(key: .backgroundColor,
-                                                   value: backgroundColor,
-                                                   range: fallback.range)
+        let backgroundAttribute = Attribute(key: .backgroundColor,
+                                            value: backgroundColor,
+                                            range: fallback.range)
 
         return [colorAttribute, backgroundAttribute]
     }
