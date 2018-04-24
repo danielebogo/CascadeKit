@@ -33,16 +33,16 @@ public extension String {
 
         if transformedScalars.isEmpty { return }
         
-        let storeBlock = { (fallback: Fallback) in
+        let storedBlock = { (fallback: Fallback) in
             Cache.shared.set(value: fallback, for: self.hashValue)
             block(fallback)
         }
         
         if transformedScalars.count == 1 {
-            storeBlock(transformedScalars.first!)
+            storedBlock(transformedScalars.first!)
         }
 
-        emit(from: transformedScalars, block: storeBlock)
+        emit(from: transformedScalars, block: storedBlock)
         Cache.shared.synchronize()
     }
     
