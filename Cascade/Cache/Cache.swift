@@ -1,8 +1,3 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
-
 import Foundation
 
 

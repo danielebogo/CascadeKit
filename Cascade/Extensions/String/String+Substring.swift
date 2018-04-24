@@ -1,8 +1,5 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
 import Foundation
+
 
 public extension String {
     /// Create a substring using a Rangeable collection

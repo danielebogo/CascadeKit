@@ -1,7 +1,3 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
 import Foundation
 
 
@@ -15,11 +11,11 @@ extension Range: Rangeable { }
 
 /// Make a CountableClosedRange condormf to Codable
 extension CountableClosedRange: Codable {
-
     /// Decoding error
     private enum DecodingError: Error {
         case dataCorruptedError(String)
     }
+    
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

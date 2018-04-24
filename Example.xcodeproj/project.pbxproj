@@ -166,9 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				9F4E52062088FB1300424676 /* Cache */,
+				9FF4F65C2052E07000899C61 /* Alphabets */,
 				9FB1861D205576CF00C0F6CF /* Models */,
 				9FF4F65F2052E19400899C61 /* Extensions */,
-				9FF4F65C2052E07000899C61 /* Alphabets */,
 			);
 			name = Cascade;
 			path = ../Cascade;
