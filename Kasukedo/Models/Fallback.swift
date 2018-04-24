@@ -28,19 +28,3 @@ public extension Fallback {
                         type: type)
     }
 }
-
-
-// MARK: Hashable & Equatable
-
-extension Fallback: Hashable {
-    public var hashValue: Int {
-        return content.hashValue
-    }
-}
-
-
-extension Fallback: Equatable {
-    public static func ==(lhs: Fallback, rhs: Fallback) -> Bool {
-        return lhs.content == rhs.content
-    }
-}
