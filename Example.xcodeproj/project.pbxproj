@@ -171,7 +171,7 @@
 				9FF4F65C2052E07000899C61 /* Alphabets */,
 			);
 			name = Cascade;
-			path = ../../Cascade;
+			path = ../Cascade;
 			sourceTree = "<group>";
 		};
 		9FF4F65C2052E07000899C61 /* Alphabets */ = {

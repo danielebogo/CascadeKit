@@ -12,6 +12,7 @@ public struct Fallback: Codable {
     let type: Alphabet
 }
 
+
 public extension Fallback {
     /// Create a new fallback from a given Fallback
     ///
@@ -21,7 +22,7 @@ public extension Fallback {
         if range.upperBound != (fallback.range.lowerBound - 1) {
             return nil
         }
-        
+
         return Fallback(content: content + fallback.content,
                         range: range.lowerBound...fallback.range.upperBound,
                         type: type)
