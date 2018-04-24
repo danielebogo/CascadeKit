@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 public extension String {
     /// Create a substring using a Rangeable collection
     ///
@@ -14,14 +13,11 @@ public extension String {
         guard !collection.isEmpty, let first = collection.first else {
             fatalError("Collection must not be empty")
         }
-        
+
         let range = interval(lowerBound: first, upperBound: (first + Int(collection.count)) - 1)
         return String(self[range.0...range.1])
     }
 
-    
-    //MARK: Private methods
-    
     /// Get an interval tuple from a bound
     ///
     /// - Parameters:

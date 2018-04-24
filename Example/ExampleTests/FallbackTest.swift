@@ -15,11 +15,11 @@ class FallbackTest: XCTestCase {
     func testFallback() {
         XCTAssertNotNil(fallback)
     }
-    
+
     func testFallbackContent() {
         XCTAssertEqual(fallback.content, content)
     }
-    
+
     func testFallbackRange() {
         XCTAssertTrue(fallback.range == range)
     }

@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 /// Custom protocol used for constraining purpose
 public protocol Rangeable{ }
 
