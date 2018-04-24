@@ -12,7 +12,7 @@ class FallbackTest: XCTestCase {
     let fallback: Fallback = Fallback(content: "Hello",
                                       range: 0...3,
                                       type: .arabic)
-    
+
     func testFallback() {
         XCTAssertNotNil(fallback)
     }

@@ -15,7 +15,7 @@ public enum Alphabet: String, Codable {
     case russian
     case russianSupplementary
 
-    
+
     /// A valid CountableClosedRange<UInt32> based on Self
     public var range: CountableClosedRange<UInt32> {
         switch self {
