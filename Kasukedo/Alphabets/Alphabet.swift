@@ -6,7 +6,7 @@ import Foundation
 
 
 /// Alphabet types
-public enum Alphabet {
+public enum Alphabet: String, Codable {
     case arabic
     case greek
     case greekExtended

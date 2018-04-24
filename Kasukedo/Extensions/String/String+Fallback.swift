@@ -24,16 +24,28 @@ public extension String {
     /// - Parameters:
     ///   - alphabets: A given list of Aphabets
     ///   - block: Emit the Fallback
-    public func mapCascade(for alphabets: [Alphabet], _ block: (Fallback) -> ()) {
+    public func mapCascade(for alphabets: [Alphabet], _ block: @escaping (Fallback) -> ()) {
+        let fallbacks = Cache.shared.value(for: hashValue)
+        if !fallbacks.isEmpty {
+            fallbacks.forEach(block)
+            return
+        }
+        
         let transformedScalars = transform(for: alphabets)
 
         if transformedScalars.isEmpty { return }
-
+        
+        let storeBlock = { (fallback: Fallback) in
+            Cache.shared.set(value: fallback, for: self.hashValue)
+            block(fallback)
+        }
+        
         if transformedScalars.count == 1 {
-            block(transformedScalars.first!)
+            storeBlock(transformedScalars.first!)
         }
 
-        emit(from: transformedScalars, block: block)
+        emit(from: transformedScalars, block: storeBlock)
+        Cache.shared.synchronize()
     }
     
     

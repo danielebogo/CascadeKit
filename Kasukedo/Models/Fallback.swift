@@ -6,10 +6,10 @@ import Foundation
 
 
 /// String cascade fallback
-public struct Fallback {
-    var content: String
-    var range: CountableClosedRange<Int>
-    var type: Alphabet
+public struct Fallback: Codable {
+    let content: String
+    let range: CountableClosedRange<Int>
+    let type: Alphabet
 }
 
 
@@ -26,5 +26,21 @@ public extension Fallback {
         return Fallback(content: content + fallback.content,
                         range: range.lowerBound...fallback.range.upperBound,
                         type: type)
+    }
+}
+
+
+// MARK: Hashable & Equatable
+
+extension Fallback: Hashable {
+    public var hashValue: Int {
+        return content.hashValue
+    }
+}
+
+
+extension Fallback: Equatable {
+    public static func ==(lhs: Fallback, rhs: Fallback) -> Bool {
+        return lhs.content == rhs.content
     }
 }
