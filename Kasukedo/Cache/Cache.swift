@@ -30,18 +30,21 @@ class Stack<Key: Hashable, Value: Codable> {
     
     // MARK: Public methods
 
-    func value(for key: Key) -> [Value] {
-        guard let values = self.values[key] else {
-            return []
+    func value(for key: Key, _ block:@escaping (Value) -> Void) -> Bool {
+        guard let values = self.values[key], !values.isEmpty else {
+            return false
         }
         
-        return values.map { data -> Value in
+        values.forEach {
             do {
-                return try decoder.decode(Value.self, from: data)
+                let value = try decoder.decode(Value.self, from: $0)
+                block(value)
             } catch {
-                fatalError("Unable to decode data \(String(data: data, encoding: .utf8) ?? "unknown")")
+                fatalError("Unable to decode data \(String(data: $0, encoding: .utf8) ?? "unknown")")
             }
         }
+        
+        return true
     }
     
     func set(value: Fallback, for key: Key) {

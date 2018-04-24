@@ -25,9 +25,7 @@ public extension String {
     ///   - alphabets: A given list of Aphabets
     ///   - block: Emit the Fallback
     public func mapCascade(for alphabets: [Alphabet], _ block: @escaping (Fallback) -> ()) {
-        let fallbacks = Cache.shared.value(for: hashValue)
-        if !fallbacks.isEmpty {
-            fallbacks.forEach(block)
+        if Cache.shared.value(for: hashValue, block) {
             return
         }
         
