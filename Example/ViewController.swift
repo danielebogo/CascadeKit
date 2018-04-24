@@ -1,4 +1,3 @@
-
 import UIKit
 
 
@@ -7,7 +6,7 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var textLabel: UILabel!
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAttributes()
