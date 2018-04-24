@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 /// Alphabet types
 public enum Alphabet: String, Codable {
     case arabic

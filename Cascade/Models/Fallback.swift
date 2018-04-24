@@ -12,7 +12,6 @@ public struct Fallback: Codable {
     let type: Alphabet
 }
 
-
 public extension Fallback {
     /// Create a new fallback from a given Fallback
     ///
