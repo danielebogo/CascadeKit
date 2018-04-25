@@ -3,9 +3,9 @@ import Foundation
 
 /// String cascade fallback
 public struct Fallback: Codable {
-    let content: String
-    let range: CountableClosedRange<Int>
-    let type: Alphabet
+    public let content: String
+    public let range: CountableClosedRange<Int>
+    public let type: Alphabet
 }
 
 
