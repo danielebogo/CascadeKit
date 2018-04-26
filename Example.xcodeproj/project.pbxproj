@@ -14,6 +14,7 @@
 		9F4E52082088FB2500424676 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E52072088FB2500424676 /* Cache.swift */; };
 		9FA2965E2056D110007BC4D3 /* RangeMatchingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA2965D2056D110007BC4D3 /* RangeMatchingTest.swift */; };
 		9FB186212056810900C0F6CF /* NSMutableAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */; };
+		9FE1AC112091E1D600F489FF /* CascadeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1AC102091E1D600F489FF /* CascadeErrors.swift */; };
 		9FF4F63B2052DA6A00899C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */; };
 		9FF4F6402052DA6A00899C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F63E2052DA6A00899C61 /* Main.storyboard */; };
 		9FF4F6422052DA6A00899C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4F6412052DA6A00899C61 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		9F4E52072088FB2500424676 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		9FA2965D2056D110007BC4D3 /* RangeMatchingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeMatchingTest.swift; sourceTree = "<group>"; };
 		9FB186202056810900C0F6CF /* NSMutableAttributedString+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attribute.swift"; sourceTree = "<group>"; };
+		9FE1AC102091E1D600F489FF /* CascadeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CascadeErrors.swift; sourceTree = "<group>"; };
 		9FF4F6372052DA6A00899C61 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4F63A2052DA6A00899C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4F63F2052DA6A00899C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9FE1AC0F2091E1BB00F489FF /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				9FE1AC102091E1D600F489FF /* CascadeErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		9FF4F62E2052DA6A00899C61 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		9FF4F65B2052DAF400899C61 /* Cascade */ = {
 			isa = PBXGroup;
 			children = (
+				9FE1AC0F2091E1BB00F489FF /* Errors */,
 				9F4E52062088FB1300424676 /* Cache */,
 				9FF4F65C2052E07000899C61 /* Alphabets */,
 				9FB1861D205576CF00C0F6CF /* Models */,
@@ -343,6 +354,7 @@
 				9FF4F66A2052EBB400899C61 /* String+Fallback.swift in Sources */,
 				7541C5402054AF9800C648EC /* ViewController.swift in Sources */,
 				9F4E52022088F06F00424676 /* Fallback.swift in Sources */,
+				9FE1AC112091E1D600F489FF /* CascadeErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

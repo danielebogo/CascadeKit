@@ -30,27 +30,27 @@ class Stack<Key: Hashable, Value: Codable> {
             return false
         }
 
-        values.forEach {
+        var status = true
+        for data in values {
             do {
-                let value = try decoder.decode(Value.self, from: $0)
+                let value = try decoder.decode(Value.self, from: data)
                 block(value)
             } catch {
-                fatalError("Unable to decode data \(String(data: $0, encoding: .utf8) ?? "unknown")")
+                status = false
+                break
             }
         }
 
-        return true
+        return status
     }
 
     func set(value: Fallback, for key: Key) {
-        var values = self.values[key] ?? []
-
-        do {
-            let data = try encoder.encode(value)
-            values.append(data)
-        } catch {
-            fatalError("Unable to encode data for key \(key)")
+        guard let data = try? encoder.encode(value) else {
+            return
         }
+
+        var values = self.values[key] ?? []
+        values.append(data)
 
         if !values.isEmpty {
             self.values[key] = values
@@ -76,7 +76,7 @@ class Stack<Key: Hashable, Value: Codable> {
             do {
                 values = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Key: [Data]] ?? [:]
             } catch {
-                fatalError("Unable to restore data: unarchive failure")
+                values = [:]
             }
         }
     }

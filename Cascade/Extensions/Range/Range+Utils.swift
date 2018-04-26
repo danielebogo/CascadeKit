@@ -11,12 +11,6 @@ extension Range: Rangeable { }
 
 /// Make a CountableClosedRange condormf to Codable
 extension CountableClosedRange: Codable {
-    /// Decoding error
-    private enum DecodingError: Error {
-        case dataCorruptedError(String)
-    }
-
-
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rangeDescription = try container.decode(String.self)
