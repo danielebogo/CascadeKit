@@ -1,8 +1,5 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
 import Foundation
+
 
 public extension Unicode.Scalar {
     /// Match the unicode scalar within the alphabet range

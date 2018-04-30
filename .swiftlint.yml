@@ -13,6 +13,9 @@ opt_in_rules:
 
 cyclomatic_complexity: 20
 
+vertical_whitespace:
+  max_empty_lines: 2
+
 large_tuple:
   warning: 4
   error: 5
