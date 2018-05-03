@@ -27,3 +27,9 @@ public enum Alphabet: String, Codable {
         }
     }
 }
+
+
+//Special chars
+public enum SpecialChar: UInt32 {
+    case whiteSpace = 32
+}
