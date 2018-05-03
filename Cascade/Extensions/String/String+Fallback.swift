@@ -10,7 +10,7 @@ public extension String {
     /// - Returns: A list of Fallback
     public func fallbackRanges(for alphabets: [Alphabet], avoiding chars: [SpecialChar] = []) -> [Fallback] {
         var ranges: [Fallback] = []
-        mapCascade(for: alphabets) { fallback in
+        mapCascade(for: alphabets, avoiding: chars) { fallback in
             ranges.append(fallback)
         }
 
