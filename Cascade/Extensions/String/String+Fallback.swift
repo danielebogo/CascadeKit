@@ -1,15 +1,12 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
 import Foundation
+
 
 public extension String {
     /// Returns a list of CascadeFallback for a given list of Alphabets
     ///
     /// - Parameter alphabets: A given list of Alphabets
     /// - Returns: A list of Fallback
-    public func fallbackRanges(for alphabets:[Alphabet]) -> [Fallback] {
+    public func fallbackRanges(for alphabets: [Alphabet]) -> [Fallback] {
         var ranges: [Fallback] = []
         mapCascade(for: alphabets) { fallback in
             ranges.append(fallback)
@@ -23,16 +20,26 @@ public extension String {
     /// - Parameters:
     ///   - alphabets: A given list of Aphabets
     ///   - block: Emit the Fallback
-    public func mapCascade(for alphabets: [Alphabet], _ block: (Fallback) -> ()) {
+    public func mapCascade(for alphabets: [Alphabet], _ block: @escaping (Fallback) -> Void) {
+        if Cache.shared.value(for: hashValue, block) {
+            return
+        }
+
         let transformedScalars = transform(for: alphabets)
 
         if transformedScalars.isEmpty { return }
 
-        if transformedScalars.count == 1 {
-            block(transformedScalars.first!)
+        let storedBlock = { (fallback: Fallback) in
+            Cache.shared.set(value: fallback, for: self.hashValue)
+            block(fallback)
         }
 
-        emit(from: transformedScalars, block: block)
+        if transformedScalars.count == 1 {
+            storedBlock(transformedScalars.first!)
+        }
+
+        emit(from: transformedScalars, block: storedBlock)
+        Cache.shared.synchronize()
     }
 
     /// Returns a list of `Fallback` based on the input `alphabet`.
@@ -62,7 +69,7 @@ public extension String {
     /// - Parameters:
     ///   - fallbacks: A Fallback collection
     ///   - block: The block to emit passing the Fallback
-    private func emit(from fallbacks: [Fallback], block: (Fallback) -> ()) {
+    private func emit(from fallbacks: [Fallback], block: (Fallback) -> Void) {
         guard var fallback = fallbacks.first else {
             return
         }

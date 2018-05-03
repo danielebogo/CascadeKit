@@ -1,16 +1,13 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
 import Foundation
 
 
 /// String cascade fallback
-public struct Fallback {
-    var content: String
-    var range: CountableClosedRange<Int>
-    var type: Alphabet
+public struct Fallback: Codable {
+    public let content: String
+    public let range: CountableClosedRange<Int>
+    public let type: Alphabet
 }
+
 
 public extension Fallback {
     /// Create a new fallback from a given Fallback
@@ -21,7 +18,7 @@ public extension Fallback {
         if range.upperBound != (fallback.range.lowerBound - 1) {
             return nil
         }
-        
+
         return Fallback(content: content + fallback.content,
                         range: range.lowerBound...fallback.range.upperBound,
                         type: type)

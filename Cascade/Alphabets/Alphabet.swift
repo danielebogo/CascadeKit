@@ -1,11 +1,8 @@
-//
-//  Copyright © 2018 YNAP. All rights reserved.
-//
-
 import Foundation
 
+
 /// Alphabet types
-public enum Alphabet {
+public enum Alphabet: String, Codable {
     case arabic
     case greek
     case greekExtended
@@ -15,7 +12,7 @@ public enum Alphabet {
     case russian
     case russianSupplementary
 
-    
+
     /// A valid CountableClosedRange<UInt32> based on Self
     public var range: CountableClosedRange<UInt32> {
         switch self {
