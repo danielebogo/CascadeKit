@@ -52,7 +52,7 @@ public extension String {
     /// - Parameter alphabets: A collection of Alphabet
     /// - Returns: A list of Fallback
     private func transform(for alphabets: [Alphabet], avoiding chars: [SpecialChar]) -> [Fallback] {
-        let transformedScalars = self.unicodeScalars.enumerated().compactMap { (arg) -> Fallback? in
+        let transformedScalars = self.unicodeScalars.enumerated().flatMap { (arg) -> Fallback? in
             let (index, scalar) = arg
 
             let isSpecialChar = chars.contains { $0.rawValue == scalar.value }
