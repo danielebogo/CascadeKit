@@ -4,7 +4,7 @@
 ![License](https://cocoapod-badges.herokuapp.com/l/arek/badge.png)
 [![Swift Version](https://img.shields.io/badge/Swift-4.1.x-orange.svg)]()
 
-*kasukēdo* is a clean and easy to use way to apply multiple styles to the attributed strings based on text
+*Cascade* is a clean and easy to use way to apply multiple styles to the attributed strings based on text
 alphabets.
 
 ```
@@ -22,4 +22,4 @@ Every goal could be easily reached using **AREK**.
 * show a popup to invite the user to re-enable the permission if it has been denied
 * manage through an easy configuration how many times to ask the user to re-enable the permission (Only once, every hour, once a day, weekly, always😷)
 
-🚨 AREK is a **Swift 4.1** and **XCode 9** compatible project 🚨
+🚨 CASCADE is a **Swift 4.1** and **XCode 9** compatible project 🚨
