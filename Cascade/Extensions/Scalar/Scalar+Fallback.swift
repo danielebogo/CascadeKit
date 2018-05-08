@@ -4,14 +4,15 @@ import Foundation
 public extension Unicode.Scalar {
     /// Match the unicode scalar within the alphabet range
     ///
-    /// - Parameter alphabets: A collection of Alphabet
+    /// - Parameters:
+    ///   - alphabets: A collection of Alphabet
+    ///   - isSpecialChar: If the scalar is a special char
     /// - Returns: An Alphabet if exists
-    public func match(in alphabets: [Alphabet]) -> Alphabet? {
+    public func match(in alphabets: [Alphabet], isSpecialChar: Bool) -> Alphabet? {
         guard !alphabets.isEmpty, let firstRange = alphabets.first else {
             return nil
         }
-
-        if firstRange.range ~= self.value { return firstRange }
-        return match(in: Array(alphabets.dropFirst()))
+        if isSpecialChar || firstRange.range ~= value { return firstRange }
+        return match(in: Array(alphabets.dropFirst()), isSpecialChar: isSpecialChar)
     }
 }

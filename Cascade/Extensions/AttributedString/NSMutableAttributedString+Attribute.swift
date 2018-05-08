@@ -7,12 +7,13 @@ public extension NSMutableAttributedString {
     ///
     /// - Parameters:
     ///   - alphabets: A collection of Alphabet
+    ///   - chars: A collection of special chars
     ///   - block: Returns the Attributes for the current fallback
 
     /// - Returns: A mutable attribute string
     @discardableResult
-    public func addAttributes(for alphabets: [Alphabet], _ block: @escaping FallBackHandler) -> NSMutableAttributedString {
-        string.mapCascade(for: alphabets) { [weak self] (fallback) in
+    public func addAttributes(for alphabets: [Alphabet], avoiding chars: [SpecialChar] = [], _ block: @escaping FallBackHandler) -> NSMutableAttributedString {
+        string.mapCascade(for: alphabets, avoiding: chars) { [weak self] (fallback) in
             let attributes = block(fallback)
 
             attributes.forEach {
