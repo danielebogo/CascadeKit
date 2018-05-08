@@ -7,15 +7,15 @@ import XCTest
 
 class RangeMatchingTest: XCTestCase {
     func testMatchUnicodeScalar() {
-        let type: UnicodeCharactersRange = ("a".unicodeScalars.first?.match(in: [.latin]))!
+        let type: Alphabet = ("a".unicodeScalars.first?.match(in: [.latin]))!
         XCTAssertEqual(type, .latin)
     }
-    
+
     func testUnmatchUnicodeScalar() {
-        let type: UnicodeCharactersRange? = "a".unicodeScalars.first?.match(in: [.arabic])
+        let type: Alphabet? = "a".unicodeScalars.first?.match(in: [.arabic])
         XCTAssertNil(type)
     }
-    
+
     func testFallbackMatching() {
         let expectation = self.expectation(description: "String matching")
         let sut = "hello"
@@ -25,7 +25,7 @@ class RangeMatchingTest: XCTestCase {
             XCTAssertEqual($0.type, .latin)
             expectation.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1.0, handler: nil)
     }
 }
