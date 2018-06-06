@@ -78,13 +78,13 @@ public extension String {
             return
         }
 
-        for currentFallback in fallbacks.dropFirst() {
+        fallbacks.dropFirst().forEach { currentFallback in
             guard let merged = fallback.merge(fallback: currentFallback) else {
                 if !fallback.isSpecialChar {
                     block(fallback)
                 }
                 fallback = currentFallback
-                continue
+                return
             }
 
             fallback = merged
