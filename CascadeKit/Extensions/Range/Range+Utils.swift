@@ -9,7 +9,7 @@ extension CountableRange: Rangeable { }
 extension Range: Rangeable { }
 
 
-/// Make a CountableClosedRange condormf to Codable
+/// Make a CountableClosedRange conform to Codable
 extension CountableClosedRange: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
